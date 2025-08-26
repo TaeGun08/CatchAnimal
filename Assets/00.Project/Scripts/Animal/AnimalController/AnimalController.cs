@@ -6,7 +6,7 @@ using UnityEngine;
 public class AnimalContext
 {
     public AnimalController Controller { get; set; }
-    public Animator Animator { get; set; }
+    public Animator[] Animators { get; set; }
     public Rigidbody Rigidbody { get; set; }
     public AnimalStatus AnimalStatus { get; set; }
 }
@@ -15,16 +15,13 @@ public class AnimalController : MonoBehaviour
 {
     private AnimalState currentState;
     private AnimalState[] states;
-
-    [Header("Animator")]
-    [SerializeField] private Animator animator;
     
     private void Awake()
     {
         var context = new AnimalContext()
         {
             Controller = this,
-            Animator = animator,
+            Animators = GetComponentsInChildren<Animator>(),
             Rigidbody = GetComponent<Rigidbody>(),
             AnimalStatus = GetComponent<AnimalStatus>(),
         };

@@ -6,4 +6,5 @@ public class AnimalStatus : MonoBehaviour
     [field: SerializeField] private float Gravity { get; set; }
     [field: SerializeField] public float MoveSpeed { get; set; }
     [field: SerializeField] private float JumpForce { get; set; }
+    [field: SerializeField] private float RageTime { get; set; }
 }
