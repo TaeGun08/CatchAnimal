@@ -7,7 +7,7 @@ public class Demo : MonoBehaviour {
 	private Animator [] animator;
 
 	[Space (10)]
-	public Transform animal;
+	public UnityEngine.Transform animal;
 	public Dropdown dropdown;
 
 	void Start () {

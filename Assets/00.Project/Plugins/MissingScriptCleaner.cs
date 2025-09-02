@@ -74,7 +74,7 @@ public static class MissingScriptCleaner
                 EditorUtility.DisplayProgressBar("Cleaning Prefabs", path, (float)i / guids.Length);
                 var root = PrefabUtility.LoadPrefabContents(path);
                 int removed = 0;
-                foreach (var go in root.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject))
+                foreach (var go in root.GetComponentsInChildren<UnityEngine.Transform>(true).Select(t => t.gameObject))
                     removed += GameObjectUtility.RemoveMonoBehavioursWithMissingScript(go);
 
                 if (removed > 0) {
@@ -112,7 +112,7 @@ public static class MissingScriptCleaner
         // Undo 지원
         Undo.RegisterFullObjectHierarchyUndo(go, "Remove Missing Scripts");
         count += GameObjectUtility.RemoveMonoBehavioursWithMissingScript(go);
-        foreach (Transform child in go.transform)
+        foreach (UnityEngine.Transform child in go.transform)
             count += CleanGameObjectRecursive(child.gameObject);
         return count;
     }

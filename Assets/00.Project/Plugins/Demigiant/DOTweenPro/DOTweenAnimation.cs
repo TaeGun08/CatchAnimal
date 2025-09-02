@@ -98,7 +98,7 @@ namespace DG.Tweening
         public Color endValueColor = new Color(1, 1, 1, 1);
         public string endValueString = "";
         public Rect endValueRect = new Rect(0, 0, 0, 0);
-        public Transform endValueTransform;
+        public UnityEngine.Transform endValueTransform;
 
         public bool optionalBool0, optionalBool1;
         public float optionalFloat0;
@@ -250,7 +250,7 @@ namespace DG.Tweening
                 }
                 switch (targetType) {
                 case TargetType.Transform:
-                    tween = ((Transform)target).DOMove(endValueV3, duration, optionalBool0);
+                    tween = ((UnityEngine.Transform)target).DOMove(endValueV3, duration, optionalBool0);
                     break;
                 case TargetType.RectTransform:
 #if true // UI_MARKER
@@ -281,7 +281,7 @@ namespace DG.Tweening
             case AnimationType.Rotate:
                 switch (targetType) {
                 case TargetType.Transform:
-                    tween = ((Transform)target).DORotate(endValueV3, duration, optionalRotationMode);
+                    tween = ((UnityEngine.Transform)target).DORotate(endValueV3, duration, optionalRotationMode);
                     break;
                 case TargetType.Rigidbody:
 #if true // PHYSICS_MARKER
@@ -437,7 +437,7 @@ namespace DG.Tweening
             case AnimationType.PunchPosition:
                 switch (targetType) {
                 case TargetType.Transform:
-                    tween = ((Transform)target).DOPunchPosition(endValueV3, duration, optionalInt0, optionalFloat0, optionalBool0);
+                    tween = ((UnityEngine.Transform)target).DOPunchPosition(endValueV3, duration, optionalInt0, optionalFloat0, optionalBool0);
                     break;
 #if true // UI_MARKER
                 case TargetType.RectTransform:
@@ -455,7 +455,7 @@ namespace DG.Tweening
             case AnimationType.ShakePosition:
                 switch (targetType) {
                 case TargetType.Transform:
-                    tween = ((Transform)target).DOShakePosition(duration, endValueV3, optionalInt0, optionalFloat0, optionalBool0, optionalBool1, optionalShakeRandomnessMode);
+                    tween = ((UnityEngine.Transform)target).DOShakePosition(duration, endValueV3, optionalInt0, optionalFloat0, optionalBool0, optionalBool1, optionalShakeRandomnessMode);
                     break;
 #if true // UI_MARKER
                 case TargetType.RectTransform:

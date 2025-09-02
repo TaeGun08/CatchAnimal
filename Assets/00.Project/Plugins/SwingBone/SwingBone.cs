@@ -10,7 +10,7 @@ using System.Collections.Generic;
 public class SwingBone : MonoBehaviour
 {
     private bool IsRoot = true;
-    private Transform baseTransform;
+    private UnityEngine.Transform baseTransform;
 
     private Vector3 m_LastPos = Vector3.zero;
     private Quaternion m_LastRot = Quaternion.identity;
@@ -39,7 +39,7 @@ public class SwingBone : MonoBehaviour
         baseTransform = this.transform;
         for (int i = 0; i < this.transform.childCount; i++)
         {
-            Transform child = this.transform.GetChild(i);
+            UnityEngine.Transform child = this.transform.GetChild(i);
             SwingBone bone = child.GetComponent<SwingBone>();
             if (bone == null)
             {

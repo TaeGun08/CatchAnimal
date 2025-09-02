@@ -7,7 +7,8 @@ public class TouchController : SingletonBehavior<TouchController>
     private Vector2 touchCurrentPosition;
 
     public float HorizontalDirection { get; private set; }
-
+    [SerializeField] private float slideSpeed;
+    
     private void Update()
     {
         if (Input.touchCount == 1)
@@ -24,7 +25,7 @@ public class TouchController : SingletonBehavior<TouchController>
                     touchCurrentPosition = touch.position;
                     Vector2 delta = touchCurrentPosition - touchStartPosition;
 
-                    HorizontalDirection = delta.x;
+                    HorizontalDirection = delta.x * slideSpeed;
                     break;
                 case TouchPhase.Ended:
                     touchStartPosition = Vector2.zero;

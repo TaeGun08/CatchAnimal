@@ -33,7 +33,7 @@ namespace DG.Tweening
         /// <param name="depth">Indicates how much the tween should move along the spiral's axis</param>
         /// <param name="snapping">If TRUE the tween will smoothly snap all values to integers</param>
         public static Tweener DOSpiral(
-            this Transform target, float duration, Vector3? axis = null, SpiralMode mode = SpiralMode.Expand,
+            this UnityEngine.Transform target, float duration, Vector3? axis = null, SpiralMode mode = SpiralMode.Expand,
             float speed = 1, float frequency = 10, float depth = 0, bool snapping = false
         ) {
             if (Mathf.Approximately(speed, 0)) speed = 1;

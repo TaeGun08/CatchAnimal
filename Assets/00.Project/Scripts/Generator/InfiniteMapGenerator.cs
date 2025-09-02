@@ -3,17 +3,20 @@ using UnityEngine;
 
 public class InfiniteMapGenerator : MonoBehaviour
 {
+    private Transform target;
+    
     [Header("Map Settings")] 
-    [SerializeField] private Transform target;
     [SerializeField] private GameObject[] mapPrefabs;
-    [SerializeField] private float segmentLength = 100f;  
-    [SerializeField] private int segmentCount = 3;
+    [SerializeField] private float segmentLength;  
+    [SerializeField] private int segmentCount;
 
     private Queue<GameObject> segmentPool = new Queue<GameObject>();
     private float nextSpawnZ;
 
     private void Start()
     {
+        target = Player.Instance.transform;
+        
         for (int i = 0; i < segmentCount; i++)
         {
             SpawnInitialSegment();
@@ -25,9 +28,9 @@ public class InfiniteMapGenerator : MonoBehaviour
         if (segmentPool.Count == 0) return;
 
         GameObject firstSegment = segmentPool.Peek();
-        float halfLengthZ = firstSegment.transform.position.z + segmentLength / 2f;
+        float halfLengthZ = firstSegment.transform.position.z + segmentLength;
         
-        if (target.position.z > halfLengthZ + halfLengthZ * 0.25f)
+        if (target.position.z > halfLengthZ)
         {
             RecycleSegment();
         }

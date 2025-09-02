@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
-    [Header("Target")]
-    public Transform target;
-
+    private Transform target;
+    
     [Header("View")]
     public float rotX = 45f;
     public float rotY = 45f;
@@ -30,13 +29,14 @@ public class CameraMover : MonoBehaviour
     private Vector3 velocity;
     private Vector3 smoothedVelocity;
 
-    void OnEnable()
+    private void OnEnable()
     {
+        target = Player.Instance.transform;
         transform.rotation = Quaternion.Euler(rotX, rotY, 0f);
         targetRigidbody = target ? target.GetComponent<Rigidbody>() : null;
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (target == null) return;
 

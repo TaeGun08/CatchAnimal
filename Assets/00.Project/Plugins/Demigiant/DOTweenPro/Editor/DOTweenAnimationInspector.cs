@@ -47,7 +47,7 @@ namespace DG.DOTweenEditor
 #if true // UI_MARKER
                 typeof(RectTransform),
 #endif
-                typeof(Transform)
+                typeof(UnityEngine.Transform)
             }},
             { DOTweenAnimation.AnimationType.Rotate, new[] {
 #if true // PHYSICS_MARKER
@@ -56,11 +56,11 @@ namespace DG.DOTweenEditor
 #if true // PHYSICS2D_MARKER
                 typeof(Rigidbody2D),
 #endif
-                typeof(Transform)
+                typeof(UnityEngine.Transform)
             }},
-            { DOTweenAnimation.AnimationType.LocalMove, new[] { typeof(Transform) } },
-            { DOTweenAnimation.AnimationType.LocalRotate, new[] { typeof(Transform) } },
-            { DOTweenAnimation.AnimationType.Scale, new[] { typeof(Transform) } },
+            { DOTweenAnimation.AnimationType.LocalMove, new[] { typeof(UnityEngine.Transform) } },
+            { DOTweenAnimation.AnimationType.LocalRotate, new[] { typeof(UnityEngine.Transform) } },
+            { DOTweenAnimation.AnimationType.Scale, new[] { typeof(UnityEngine.Transform) } },
             { DOTweenAnimation.AnimationType.Color, new[] {
                 typeof(Light),
 #if true // SPRITE_MARKER
@@ -88,18 +88,18 @@ namespace DG.DOTweenEditor
 #if true // UI_MARKER
                 typeof(RectTransform),
 #endif
-                typeof(Transform)
+                typeof(UnityEngine.Transform)
             }},
-            { DOTweenAnimation.AnimationType.PunchRotation, new[] { typeof(Transform) } },
-            { DOTweenAnimation.AnimationType.PunchScale, new[] { typeof(Transform) } },
+            { DOTweenAnimation.AnimationType.PunchRotation, new[] { typeof(UnityEngine.Transform) } },
+            { DOTweenAnimation.AnimationType.PunchScale, new[] { typeof(UnityEngine.Transform) } },
             { DOTweenAnimation.AnimationType.ShakePosition, new[] {
 #if true // UI_MARKER
                 typeof(RectTransform),
 #endif
-                typeof(Transform)
+                typeof(UnityEngine.Transform)
             }},
-            { DOTweenAnimation.AnimationType.ShakeRotation, new[] { typeof(Transform) } },
-            { DOTweenAnimation.AnimationType.ShakeScale, new[] { typeof(Transform) } },
+            { DOTweenAnimation.AnimationType.ShakeRotation, new[] { typeof(UnityEngine.Transform) } },
+            { DOTweenAnimation.AnimationType.ShakeScale, new[] { typeof(UnityEngine.Transform) } },
             { DOTweenAnimation.AnimationType.CameraAspect, new[] { typeof(Camera) } },
             { DOTweenAnimation.AnimationType.CameraBackgroundColor, new[] { typeof(Camera) } },
             { DOTweenAnimation.AnimationType.CameraFieldOfView, new[] { typeof(Camera) } },
@@ -675,8 +675,8 @@ namespace DG.DOTweenEditor
             GUILayout.BeginHorizontal();
             GUIToFromButton();
             if (_src.useTargetAsV3) {
-                Transform prevT = _src.endValueTransform;
-                _src.endValueTransform = EditorGUILayout.ObjectField(_src.endValueTransform, typeof(Transform), true) as Transform;
+                UnityEngine.Transform prevT = _src.endValueTransform;
+                _src.endValueTransform = EditorGUILayout.ObjectField(_src.endValueTransform, typeof(UnityEngine.Transform), true) as UnityEngine.Transform;
                 if (_src.endValueTransform != prevT && _src.endValueTransform != null) {
 #if true // UI_MARKER
                     // Check that it's a Transform for a Transform or a RectTransform for a RectTransform

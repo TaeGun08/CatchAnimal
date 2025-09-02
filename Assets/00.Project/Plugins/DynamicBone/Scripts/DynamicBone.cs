@@ -14,8 +14,8 @@ public class DynamicBone : MonoBehaviour
 #if UNITY_5_3_OR_NEWER
     [Tooltip("The roots of the transform hierarchy to apply physics.")]
 #endif
-    public Transform m_Root = null;
-    public List<Transform> m_Roots = null;
+    public UnityEngine.Transform m_Root = null;
+    public List<UnityEngine.Transform> m_Roots = null;
 
 #if UNITY_5_3_OR_NEWER
     [Tooltip("Internal physics simulation rate.")]
@@ -105,7 +105,7 @@ public class DynamicBone : MonoBehaviour
 #if UNITY_5_3_OR_NEWER
     [Tooltip("Bones exclude from physics simulation.")]
 #endif
-    public List<Transform> m_Exclusions = null;
+    public List<UnityEngine.Transform> m_Exclusions = null;
 
     public enum FreezeAxis
     {
@@ -120,7 +120,7 @@ public class DynamicBone : MonoBehaviour
     [Tooltip("Disable physics simulation automatically if character is far from camera or player.")]
 #endif
     public bool m_DistantDisable = false;
-    public Transform m_ReferenceObject = null;
+    public UnityEngine.Transform m_ReferenceObject = null;
     public float m_DistanceToObject = 20;
 
     [HideInInspector]
@@ -137,7 +137,7 @@ public class DynamicBone : MonoBehaviour
 
     class Particle
     {
-        public Transform m_Transform;
+        public UnityEngine.Transform m_Transform;
         public int m_ParentIndex;
         public int m_ChildCount;
         public float m_Damping;
@@ -164,7 +164,7 @@ public class DynamicBone : MonoBehaviour
 
     class ParticleTree
     {
-        public Transform m_Root;
+        public UnityEngine.Transform m_Root;
         public Vector3 m_LocalGravity;
         public Matrix4x4 m_RootWorldToLocalMatrix;
         public float m_BoneTotalLength;
@@ -340,7 +340,7 @@ public class DynamicBone : MonoBehaviour
         if (!m_DistantDisable)
             return;
 
-        Transform rt = m_ReferenceObject;
+        UnityEngine.Transform rt = m_ReferenceObject;
         if (rt == null && Camera.main != null)
         {
             rt = Camera.main.transform;
@@ -397,7 +397,7 @@ public class DynamicBone : MonoBehaviour
 
     bool IsRootChanged()
     {
-        var roots = new List<Transform>();
+        var roots = new List<UnityEngine.Transform>();
         if (m_Root != null)
         {
             roots.Add(m_Root);
@@ -551,7 +551,7 @@ public class DynamicBone : MonoBehaviour
         {
             for (int i = 0; i < m_Roots.Count; ++i)
             {
-                Transform root = m_Roots[i];
+                UnityEngine.Transform root = m_Roots[i];
                 if (root == null)
                     continue;
 
@@ -575,7 +575,7 @@ public class DynamicBone : MonoBehaviour
         UpdateParameters();
     }
 
-    void AppendParticleTree(Transform root)
+    void AppendParticleTree(UnityEngine.Transform root)
     {
         if (root == null)
             return;
@@ -586,7 +586,7 @@ public class DynamicBone : MonoBehaviour
         m_ParticleTrees.Add(pt);
     }
 
-    void AppendParticles(ParticleTree pt, Transform b, int parentIndex, float boneLength)
+    void AppendParticles(ParticleTree pt, UnityEngine.Transform b, int parentIndex, float boneLength)
     {
         var p = new Particle();
         p.m_Transform = b;
@@ -601,10 +601,10 @@ public class DynamicBone : MonoBehaviour
         }
         else 	// end bone
         {
-            Transform pb = pt.m_Particles[parentIndex].m_Transform;
+            UnityEngine.Transform pb = pt.m_Particles[parentIndex].m_Transform;
             if (m_EndLength > 0)
             {
-                Transform ppb = pb.parent;
+                UnityEngine.Transform ppb = pb.parent;
                 if (ppb != null)
                 {
                     p.m_EndOffset = pb.InverseTransformPoint((pb.position * 2 - ppb.position)) * m_EndLength;
@@ -638,7 +638,7 @@ public class DynamicBone : MonoBehaviour
         {
             for (int i = 0; i < b.childCount; ++i)
             {
-                Transform child = b.GetChild(i);
+                UnityEngine.Transform child = b.GetChild(i);
                 bool exclude = false;
                 if (m_Exclusions != null)
                 {
@@ -754,7 +754,7 @@ public class DynamicBone : MonoBehaviour
             }
             else	// end bone
             {
-                Transform pb = pt.m_Particles[p.m_ParentIndex].m_Transform;
+                UnityEngine.Transform pb = pt.m_Particles[p.m_ParentIndex].m_Transform;
                 p.m_Position = p.m_PrevPosition = pb.TransformPoint(p.m_EndOffset);
             }
             p.m_isCollide = false;
