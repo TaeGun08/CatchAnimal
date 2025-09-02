@@ -13,8 +13,8 @@ public class AnimalContext
 
 public class AnimalController : MonoBehaviour
 {
-    private AnimalState currentState;
-    private AnimalState[] states;
+    private AnimalStateBase currentState;
+    private AnimalStateBase[] states;
     
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class AnimalController : MonoBehaviour
             AnimalStatus = GetComponent<AnimalStatus>(),
         };
         
-        states = GetComponentsInChildren<AnimalState>();
+        states = GetComponentsInChildren<AnimalStateBase>();
 
         foreach (var state in states)
         {
@@ -37,7 +37,7 @@ public class AnimalController : MonoBehaviour
         currentState?.StateEnter();
     }
 
-    public void ChangeState<T>() where T : AnimalState
+    public void ChangeState<T>() where T : AnimalStateBase
     {
         if (enabled == false) return;
 
