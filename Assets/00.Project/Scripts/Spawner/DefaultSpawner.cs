@@ -8,7 +8,6 @@ public class DefaultSpawner : MonoBehaviour
     private void Start()
     {
         Animal spawnAnimal = Instantiate(animal, transform.position, Quaternion.identity);
-        spawnAnimal.Riding(Player.Instance);
-        spawnAnimal.AnimalController.ChangeState<AnimalRunStateBase>();
+        Player.Instance.Riding(spawnAnimal);
     }
 }

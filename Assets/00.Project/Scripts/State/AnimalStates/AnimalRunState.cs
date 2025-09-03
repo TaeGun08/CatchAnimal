@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class AnimalRunStateBase : AnimalStateBase
+public class AnimalRunState : AnimalStateBase
 {
     private AnimalMovement animalMovement;
 

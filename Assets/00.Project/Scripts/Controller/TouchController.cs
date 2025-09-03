@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class TouchController : SingletonBehavior<TouchController>
+public class TouchController : SingletonBehaviour<TouchController>
 {
     private Vector2 touchStartPosition;
     private Vector2 touchCurrentPosition;

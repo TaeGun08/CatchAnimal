@@ -40,6 +40,7 @@ public class InfiniteMapGenerator : MonoBehaviour
     {
         GameObject prefab = mapPrefabs[Random.Range(0, mapPrefabs.Length)];
         GameObject segment = Instantiate(prefab, new Vector3(0, 0, nextSpawnZ), Quaternion.identity, transform);
+        segment.GetComponent<ObstacleSpawner>().SpawnObstacle();
         segmentPool.Enqueue(segment);
         nextSpawnZ += segmentLength;
     }
@@ -48,6 +49,7 @@ public class InfiniteMapGenerator : MonoBehaviour
     {
         GameObject segment = segmentPool.Dequeue();  
         segment.transform.position = new Vector3(0, 0, nextSpawnZ);  
+        segment.GetComponent<ObstacleSpawner>().SpawnObstacle();
         segmentPool.Enqueue(segment);
         nextSpawnZ += segmentLength;   
     }

@@ -249,6 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6309671910216630035}
+  - component: {fileID: 6128634944955952559}
   m_Layer: 0
   m_Name: AnimalDeadState
   m_TagString: Untagged
@@ -271,6 +272,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2697024358463702760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6128634944955952559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298684875001558781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e682aab75c8815429344ec2017f1f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimalDeadState
 --- !u!1 &1299417254158339636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,9 +1169,10 @@ GameObject:
   - component: {fileID: 7940896394853648920}
   - component: {fileID: 3589470105210354413}
   - component: {fileID: 822932682708926933}
+  - component: {fileID: 5400013260500120590}
   m_Layer: 6
   m_Name: Cow
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1305,6 +1319,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238949fd51aece74ba1ff151343e4a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimalsController
+--- !u!114 &5400013260500120590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4853474298623055620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db1888423b85014fbe59c91a6dd09d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleInteract
+  obstacleWeight: 1
 --- !u!1 &4928387047342847938
 GameObject:
   m_ObjectHideFlags: 0

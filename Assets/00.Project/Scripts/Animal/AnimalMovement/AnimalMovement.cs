@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class AnimalMovement : MonoBehaviour
 {
     public AnimalContext Context { get; set; }
-
+    
     public virtual void Initialize(AnimalContext context)
     {
         Context = context;

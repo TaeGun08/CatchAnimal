@@ -1,27 +1,21 @@
 using UnityEngine;
 
-public class Animal : MonoBehaviour
+public class Animal : MonoBehaviour, IObstacleCollision
 {
     public AnimalController AnimalController { get; private set; }
-
+    
     [Header("Rinding Transform")]
     [SerializeField] private Vector3 ridingOffset;
+    public Vector3 RidingOffset => ridingOffset;
 
     private void Awake()
     {
         AnimalController = GetComponent<AnimalController>();
     }
-    
-    public void Riding(Player player)
-    {
-        AnimalController.ChangeState<AnimalRunStateBase>();
-        player.transform.parent = transform;
-        player.transform.localPosition = ridingOffset;
-    }
 
-    public void Dismounting(Player player)
+    public void HitObstacle()
     {
-        AnimalController.ChangeState<AnimalAutoStateBase>();
-        player.transform.parent = GameManager.Instance.transform;
+        if (Player.Instance.IsRiding == false) return;
+        AnimalController.ChangeState<AnimalDeadState>();
     }
 }
