@@ -28,6 +28,7 @@ public class TouchController : SingletonBehaviour<TouchController>
                     HorizontalDirection = delta.x * slideSpeed;
                     break;
                 case TouchPhase.Ended:
+                    Player.Instance.Dismount();
                     touchStartPosition = Vector2.zero;
                     HorizontalDirection = 0;
                     break;
