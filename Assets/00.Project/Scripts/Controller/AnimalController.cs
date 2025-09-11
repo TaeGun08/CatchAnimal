@@ -40,7 +40,7 @@ public class AnimalController : MonoBehaviour
     public void ChangeState<T>() where T : AnimalStateBase
     {
         if (enabled == false) return;
-
+        
         currentState?.StateExit();
         currentState = states.FirstOrDefault(state => state is T);
         

@@ -47,8 +47,10 @@ public class Player : SingletonBehaviour<Player>, IObstacleCollision
 
     private void Jump()
     {
-        rigidbody.AddForce(transform.up * 10f, ForceMode.Impulse);
-        rigidbody.AddForce(transform.forward * 10f, ForceMode.Impulse);
+        float force = Animal.Rigidbody.linearVelocity.magnitude * 1.5f;
+        rigidbody.AddForce(transform.up * force, ForceMode.Impulse);
+        rigidbody.AddForce(transform.forward * force, ForceMode.Impulse);
+        Animal = null;
     }
 
 
